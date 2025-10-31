@@ -8,8 +8,12 @@ export default defineConfig(({ command }) => {
   return {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
+      'import.meta.env.VITE_PIXABAY_API_KEY': JSON.stringify(
+        process.env.VITE_PIXABAY_API_KEY
+      ),
     },
     root: 'src',
+    envDir: '../',
     build: {
       sourcemap: true,
       rollupOptions: {
